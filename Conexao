@@ -1,32 +1,19 @@
+public class Conexao implements AutoCloseable {
 
-public class TesteConexao {
-	
-	public static void main(String[] args){
-				
-		try (Conexao conexao = new Conexao()) {
-			conexao.leDados();
-			} catch (IllegalStateException ex) {
-				System.out.println("Deu erro na conexao");
-			}
+    public Conexao() {
+        System.out.println("Abrindo conexao");
+        //throw new IllegalStateException();
+    }
+
+    public void leDados() {
+        System.out.println("Recebendo dados");
+         throw new IllegalStateException();
+    }
+
+
+	@Override
+	public void close() {
+		System.out.println("Fechando conexao ");
 		
 	}
-}
-		
-		//------------------------------
-		
-		
-//			Conexao con = null;
-//		
-//		try {
-//			con = new Conexao ();
-//			con.leDados();
-//		} catch (IllegalStateException ex) {
-//			System.out.println("Deu erro na conexao");
-//		} finally {
-//			System.out.println("Finally");
-//			if(con != null) {
-//			con.close();
-//		} 
-//		 		
-//			
-//	} 
+} 
